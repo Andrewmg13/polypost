@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polypost | One draft. Every platform.</title>
+  <meta name="description" content="Polypost turns one draft into ready-to-post content for Twitter/X, LinkedIn, Instagram and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ================= OPTIONAL: YOUR DIFY CHATBOT =================
+       If you have a Dify Chatbot/Chatflow app, open it in Dify →
+       Publish → Embed Into Site → copy the 2nd option (chat bubble script)
+       and paste it right here. The built-in chatbot will hide itself
+       automatically when Dify's bubble is present.
+       ================================================================ -->
+
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="logo"><span class="dot"></span>Polypost</a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#studio">Try it</a></li>
+      <li><a href="how-it-works.html">How it works</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HERO: AI-generated video, autoplays on a loop ===== -->
+  <header class="hero">
+    <!-- muted + playsinline are required for browsers to allow autoplay -->
+    <video autoplay muted loop playsinline preload="auto" id="heroVideo">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <span class="eyebrow">AI content studio for teams</span>
+      <h1>One draft.<br><span>Every platform.</span></h1>
+      <p>Write your idea once. Polypost reads your notes, files and images, learns each platform's style, and hands back posts for Twitter/X, LinkedIn, Instagram and more — in your brand voice, in seconds.</p>
+      <div class="hero-actions">
+        <!-- Button to the second page -->
+        <a href="how-it-works.html" class="btn btn-primary">See how it works →</a>
+        <a href="#studio" class="btn btn-ghost">Try the live preview</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features">
+    <div class="section-head reveal">
+      <h2>Stop rewriting the same post five times</h2>
+      <p>Marketing teams spend hours turning one announcement into a tweet, a LinkedIn post and a caption. Polypost does it in one pass.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="icon">📝</div><h3>Drop in anything</h3><p>Paste a rough draft, or upload a press release, PDF or product screenshot. Polypost pulls out the key facts automatically.</p></div>
+      <div class="card reveal"><div class="icon">🎯</div><h3>Platform-native style</h3><p>Each post is written for where it lives: short and punchy for X, story-driven for LinkedIn, visual and emoji-friendly for Instagram.</p></div>
+      <div class="card reveal"><div class="icon">🗣️</div><h3>Your voice, every time</h3><p>Tell it "friendly but professional" once. Every output keeps the same tone, facts and numbers, so nothing contradicts.</p></div>
+      <div class="card reveal"><div class="icon">🌍</div><h3>Any language</h3><p>Generate the whole set in English, Spanish, Chinese and more, so regional teams launch at the same time.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== X-FACTOR: Live multi-platform post previewer ===== -->
+  <section id="studio" class="studio">
+    <div class="section-head reveal">
+      <span class="eyebrow">Live demo</span>
+      <h2 style="margin-top:14px">See your post on every platform</h2>
+      <p>Type an idea, pick a tone and platforms, and watch the previews update as you type — with live character-limit meters.</p>
+    </div>
+    <div class="studio-grid">
+      <div class="panel">
+        <label for="draft">Your draft</label>
+        <textarea id="draft">We just launched a new AI writing assistant that helps teams create content 10x faster.</textarea>
+        <label style="margin-top:20px">Tone</label>
+        <div class="tone-row" id="tones">
+          <button class="chip on" data-tone="friendly">Friendly</button>
+          <button class="chip" data-tone="professional">Professional</button>
+          <button class="chip" data-tone="hype">Hype</button>
+        </div>
+        <label>Platforms</label>
+        <div class="plat-row" id="plats">
+          <button class="chip on" data-plat="x">X / Twitter</button>
+          <button class="chip on" data-plat="linkedin">LinkedIn</button>
+          <button class="chip" data-plat="instagram">Instagram</button>
+          <button class="chip" data-plat="threads">Threads</button>
+        </div>
+        <button class="btn btn-primary" id="shuffle" style="width:100%">✨ Remix wording</button>
+      </div>
+      <div class="previews" id="previews"></div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section>
+    <div class="stats reveal">
+      <div class="stat"><b data-count="10">0</b><span>× faster than writing each post by hand</span></div>
+      <div class="stat"><b data-count="4">0</b><span>platforms from a single draft</span></div>
+      <div class="stat"><b data-count="1">0</b><span>source of truth for every number</span></div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Ready to post everywhere at once?</h2>
+    <a href="how-it-works.html" class="btn btn-dark">See plans &amp; how it works →</a>
+  </section>
+
+  <footer>
+    <!-- Required: X-factor description (under 50 words) -->
+    <div class="xfactor-note">
+      <strong>✦ X-Factor feature</strong>
+      Live Post Previewer: type any draft, choose a tone and platforms, and instantly see realistic X, LinkedIn, Instagram and Threads previews with character-limit meters, a "Remix" button for new wording, and one-click copy.
+    </div>
+    <p class="foot-bottom">© 2026 Polypost · A class project built with AI-generated code and video · Chat assistant: bottom-right corner</p>
+  </footer>
+
+  <script src="previewer.js"></script>
+  <script src="chatbot.js"></script>
+  <script>
+    // Solid nav after scrolling
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40));
+
+    // Make sure the video starts even if the browser was slow to autoplay
+    const v = document.getElementById('heroVideo');
+    v.play().catch(() => {});
+    document.addEventListener('click', () => v.paused && v.play(), { once: true });
+
+    // Reveal-on-scroll + count-up stats
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('[data-count]').forEach(el => {
+        const end = +el.dataset.count; let n = 0;
+        const t = setInterval(() => { n++; el.textContent = n; if (n >= end) clearInterval(t); }, 90);
+      });
+      io.unobserve(e.target);
+    }), { threshold: .2 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
