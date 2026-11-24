@@ -5,7 +5,7 @@
   if (window.difyChatbotConfig) return; // Dify chatbot present → let Dify handle chat
 
   const KB = [
-    { k: ['hi', 'hello', 'hey', 'yo', 'good morning', 'good afternoon'],
+    { k: ['hi', 'hello', 'hey', 'good morning', 'good afternoon'],
       a: "Hi there! 👋 I'm Polly, Polypost's assistant. Ask me about features, pricing, platforms, languages or how the AI works." },
     { k: ['what is', 'what does', 'about', 'polypost', 'explain'],
       a: 'Polypost turns one draft into ready-to-post content for every platform. You write the idea once; we create a short X/Twitter post, a story-style LinkedIn post, an Instagram caption and more, all in your brand voice.' },
@@ -39,7 +39,9 @@
     const s = ' ' + q.toLowerCase() + ' ';
     let best = null, score = 0;
     KB.forEach(item => {
-      const sc = item.k.filter(k => s.includes(k)).length;
+      // match keywords only at the start of a word (so "hi" doesn't match "which")
+      const sc = item.k.filter(k => k.startsWith(' ') ? s.includes(k)
+        : new RegExp('(^|[^a-z])' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(s)).length;
       if (sc > score) { score = sc; best = item; }
     });
     return best ? best.a : FALLBACK;
